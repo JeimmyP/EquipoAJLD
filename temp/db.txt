@@ -62,3 +62,10 @@ ALTER TABLE `school`
   ADD CONSTRAINT `fk_school_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_school_email` FOREIGN KEY (`email_id`) REFERENCES `email` (`email_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_school_phone` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`phone_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+ALTER TABLE `group`
+  ADD PRIMARY KEY (`group_id`);
+
+ALTER TABLE `group`
+  MODIFY `group_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
