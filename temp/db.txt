@@ -34,3 +34,31 @@ CREATE TABLE `group` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+
+--02/01/2019--------------Jeimmy-----------------------
+
+CREATE TABLE `school` (
+  `school_id` int(10) NOT NULL,
+  `address_id` int(11) UNSIGNED NOT NULL,
+  `phone_id` int(11) UNSIGNED NOT NULL,
+  `email_id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `status` int(11) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) 
+
+
+ALTER TABLE `school`
+  ADD PRIMARY KEY (`school_id`),
+  ADD KEY `fk_school_phone` (`phone_id`),
+  ADD KEY `fk_school_email` (`email_id`),
+  ADD KEY `fk_school_address` (`address_id`);
+
+ALTER TABLE `school`
+  MODIFY `school_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+ALTER TABLE `school`
+  ADD CONSTRAINT `fk_school_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_school_email` FOREIGN KEY (`email_id`) REFERENCES `email` (`email_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_school_phone` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`phone_id`) ON DELETE CASCADE ON UPDATE CASCADE;
