@@ -1,0 +1,9 @@
+CREATE TABLE teacher (
+    teacher_id INT(10) unsigned AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    group_id INT(10) unsigned NOT NULL,
+    phone_id INT(10) unsigned NOT NULL,
+    name varchar(50) NOT NULL,
+    status INT(10) NOT NULL,
+    created_at timestamp NOT NULL,
+    modified_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
+    )
