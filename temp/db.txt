@@ -8,7 +8,7 @@ CREATE TABLE teacher (
     modified_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
     )
 
- --02/01/2018-------Alexis------------------
+ --02/01/2019-------Alexis------------------
 
  CREATE TABLE `student` (
   `student_id` int(10) UNSIGNED NOT NULL,
@@ -17,6 +17,19 @@ CREATE TABLE teacher (
   `email_id` int(10) UNSIGNED NOT NULL,
   `address_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
+  `status` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+
+
+--02/01/2019--------------Luis-----------------------
+
+CREATE TABLE `group` (
+  `group_id` int(10) UNSIGNED NOT NULL,
+  `school_id` int(10) UNSIGNED NOT NULL,
+  `group_name` varchar(100) NOT NULL,
   `status` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
