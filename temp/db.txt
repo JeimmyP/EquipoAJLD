@@ -69,3 +69,7 @@ ALTER TABLE `group`
 
 ALTER TABLE `group`
   MODIFY `group_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`student_id`);
