@@ -5,6 +5,7 @@ const schoolController = require('../controller/schoolController');
 
 /* GET home page. */
 router.get('/listSchools', schoolController.list_all_school);
+router.post('/createSchool', schoolController.create_a_school);
 
 module.exports = router;
 

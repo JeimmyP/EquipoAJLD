@@ -2,18 +2,17 @@
 
 const sql = require('./conexion.js');
 
-let Group = function(group) {
-	// body...
-	this.school_id=group.school_id;
-	this.group_name=group.group_name;
-	this.status=group.status;
-	this.created_at= new Date();
-	this.modified_at= new Date();
-}
+let Group = function(groupS) {
+	this.school_id = groupS.school_id;
+	this.group_name = groupS.group_name;
+	this.status = groupS.status;
+	this.created_at = new Date();
+	this.modified_at = new Date();
+};
 
-Group.createGroup = function createGroup(newGroup, result){
-	let query = "INSERT INTO group set ?";
-	sql.query(query, newGroup, function(err, rest){
+Group.createGroup = function(newGroup, result){
+	let query = "INSERT INTO `group` set ?";
+	sql.query(query, newGroup, function(err, res){
 		if(err){
 			console.log("ERROR: ",err);
 			result(err, null);
