@@ -8,6 +8,8 @@ const usersRouter = require('./routes/users');
 const schoolRouter = require('./routes/schoolRoutes');
 const groupRouter = require('./routes/groupRoutes');
 const studentRouter = require('./routes/studentRoutes');
+const teacherRouter = require('./routes/teacherRoutes');
+
 
 const app = express();
 
@@ -21,5 +23,7 @@ app.use('/school', schoolRouter);
 app.use('/group', groupRouter);
 app.use('/student', studentRouter);
 app.use('/users', usersRouter);
+app.use('/teacher', teacherRouter);
+
 
 module.exports = app;
