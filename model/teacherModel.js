@@ -1,18 +1,19 @@
 'use strict';
 
-const sql =require('./db.js');
+const sql = require('./conexion.js');
 
 let Teacher = function(teacher){
+	this.group_id = teacher.group_id;
 	this.phone_id = teacher.phone_id;
-	this.email_id = teacher.email_id;
 	this.name = teacher.name;
 	this.status = teacher.status;
 	this.created_at = new Date();
+	this.modified_at = new Date();
 };
 
 Teacher.createTeacher = function(newTeacher, result){
 	let query ="INSERT INTO teacher set ?";
-	sql.query(query, newTeacher, function(err, rest){
+	sql.query(query, newTeacher, function(err, res){
 		if(err){
 			console.log("Error: ", err);
 			result(err, null);
@@ -25,7 +26,7 @@ Teacher.createTeacher = function(newTeacher, result){
 
 Teacher.getTeacherById =function(teacherId, result){
 	let query = "SELECT teacher FROM teachers WHERE teacher_id = ?";
-	slq.query(query, teacher_id, function (err, res){
+	sql.query(query, teacher_id, function (err, res){
 		if(err){
 			console.log("Error: ", err);
 			result(err, null);
@@ -37,7 +38,7 @@ Teacher.getTeacherById =function(teacherId, result){
 
 Teacher.getALLTeacher = function(result){
 	let query = "SELECT * FROM teacher;";
-	slq.query(query, function(err, res){
+	sql.query(query, function(err, res){
 		if(err){
 			console.log("Error: ", err);
 			result(err, null);

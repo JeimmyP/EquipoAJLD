@@ -1,6 +1,6 @@
 'use strict';
 
-const Teacher = require('../controller/teacherControler.js');
+const Teacher = require('../model/teacherModel.js');
 
 exports.listAllTeacher = function(req, res){
 	Teacher.getALLTeacher(function(err, teacher){
@@ -13,20 +13,21 @@ exports.listAllTeacher = function(req, res){
 	});
 };
 
-exports.createTeacher = function(err, res){
-	let newtTeacher = new Teacher(req.body);
-	if(!newTeacher.phone_id || !newTeacher.email_id || !newTeacher.name || !newTeacher.status){
+exports.createTeacher = function(req, res){
+	let newTeacher = new Teacher(req.body);
+	if(!newTeacher.group_id || !newTeacher.phone_id || !newTeacher.name || !newTeacher.status){
 		res.status(400).send({
-			error; true,
+			error: true,
 			message: 'Todos los datos son obligatorios alv.'
 		});
 	}else{
-		Teacher.createTeacher(new_teacher, function(err, teacher){
+		Teacher.createTeacher(newTeacher, function(err, teacher){
 			if(err)
 				res.send(err);
-				res.json(teacher);
+			res.json(teacher);
 		});
 	}
+	// res.json(newTeacher);
 };
 
 exports.readTeacher = function(req, res){
@@ -49,6 +50,6 @@ exports.deleteTeacher = function(req, res){
 	Teacher.remove(req.params.teacherId, function(err, teacher){
 		if(err)
 			res.send(err);
-		res.json(Tarea borrada correctamente.);
+		res.json("Tarea borrada correctamente.");
 	});
 };
