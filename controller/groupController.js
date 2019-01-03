@@ -1,6 +1,6 @@
 'use strict';
 
-const Group = require('../model/groupModel.js');
+const Group = require('../model/groupModel');
 
 exports.list_alls_groups = function(req, res){
 	Group.getAllGroups(function (err, group){
@@ -21,11 +21,16 @@ exports.create_a_group = function(req, res){
 		});
 	}else{
 		Group.createGroup(new_group, function(err, group){
-			if(err)
+			if(err){
 				res.send(err);
+			}
+			else{
 				res.json(group);
+			}
 		});
+		// res.send('h');
 	}
+	// res.json(new_group);
 };
 
 exports.read_a_group = function(req, res){

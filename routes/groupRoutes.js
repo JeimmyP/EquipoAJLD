@@ -5,6 +5,7 @@ let router = express.Router();
 const groupController = require('../controller/groupController');
 /* GET home page. */
 router.get('/listgroups', groupController.list_alls_groups);
+router.post('/creategroup', groupController.create_a_group);
 
 module.exports = router;
 
