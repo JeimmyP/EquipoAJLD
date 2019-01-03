@@ -1,6 +1,6 @@
 'use strict';
 
-var School = require('../model/schoolModel.js');
+const School = require('../model/schoolModel.js');
 
 exports.list_all_school = function(req, res){
 	School.getAllScholl(function(err, task){
