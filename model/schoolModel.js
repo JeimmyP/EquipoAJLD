@@ -3,14 +3,18 @@
 const sql = require('./conexion.js');
 
 const School = function(school){
-	this.school = school.school;
-	this.statues = school.statues;
+	this.address_id = school.address_id;
+	this.phone_id = school.phone_id;
+	this.email_id = school.email_id;
+	this.name = school.name;
+	this.status = school.status;
 	this.created_at = new Date();
+	this.modified_at = new Date();
 }
 
-/*School.createSchool = function createUser(newSchool, result){
-	let query = "INSERT INTO school set ?,?,?,?,?,?,?";
-	sql.query(query, newSchool, function(err, rest){
+School.createSchool = function createUser(newSchool, result){
+	let query = "INSERT INTO school SET ?";
+	sql.query(query, newSchool, function(err, res){
 		if(err){
 			console.log("Error: ", err);
 			result(err, null);
@@ -19,9 +23,9 @@ const School = function(school){
 			result(null, res.insertId);
 		}
 	});
-};*/
+};
 
-School.getSchoolById = function createUser(schoolId, result){
+/*School.getSchoolById = function createUser(schoolId, result){
 	let query = "SELECT name FROM school WHERE school_id = ?";
 	sql.query(query, schoolId, function(err, res){
 		if(err){
@@ -31,7 +35,7 @@ School.getSchoolById = function createUser(schoolId, result){
 			result(null, res);
 		}
 	});
-};
+};*/
 
 School.getAllSchool = function getAllSchool(result){
 	let query = "SELECT * FROM school;";
