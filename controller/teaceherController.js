@@ -1,6 +1,6 @@
 'use strict';
 
-const Teacher = require('../controler/teacherControler.js');
+const Teacher = require('../controller/teacherControler.js');
 
 exports.listAllTeacher = function(req, res){
 	Teacher.getALLTeacher(function(err, teacher){
