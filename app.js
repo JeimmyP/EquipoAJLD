@@ -7,6 +7,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const schoolRouter = require('./routes/schoolRoutes');
 const groupRouter = require('./routes/groupRoutes');
+const studentRouter = require('./routes/studentRoutes');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/school', schoolRouter);
 app.use('/group', groupRouter);
+app.use('/student', studentRouter);
 app.use('/users', usersRouter);
 
 module.exports = app;

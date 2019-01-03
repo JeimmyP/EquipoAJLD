@@ -73,3 +73,5 @@ ALTER TABLE `group`
 
 ALTER TABLE `student`
   ADD PRIMARY KEY (`student_id`);
+
+  ALTER TABLE `student` CHANGE `student_id` `student_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT;
