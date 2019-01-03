@@ -3,12 +3,12 @@
 const School = require('../model/schoolModel.js');
 
 exports.list_all_school = function(req, res){
-	School.getAllScholl(function(err, task){
+	School.getAllSchool(function(err, task){
 		console.log('controller');
 		if(err)
 			res.send(err);
 			console.log('res', task);
-		res.send(task);
+		res.json(task);
 	});
 };
 /*exports.create_a_school = function(err, res){

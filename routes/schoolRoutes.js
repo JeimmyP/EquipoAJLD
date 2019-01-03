@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+const schoolController = require('../controller/schoolController');
+
 /* GET home page. */
-router.get('/listSchools', function(req, res, next) {
-  res.send('index');
-});
+router.get('/listSchools', schoolController.list_all_school);
 
 module.exports = router;
 
